@@ -72,7 +72,8 @@ router.get('/post/:id', async (req, res) => {
 
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      edit_post: true
     });
   } catch (err) {
     res.status(500).json(err);
