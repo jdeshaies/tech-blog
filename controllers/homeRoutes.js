@@ -53,6 +53,10 @@ router.get('/homepage', async (req, res) => {
   }
 });
 
+router.get('/post', async (req, res) => {
+  res.render('post');
+});
+
 router.get('/post/:id', async (req, res) => {
   try {
     const postData = await Post.findByPk(req.params.id, {
@@ -68,7 +72,8 @@ router.get('/post/:id', async (req, res) => {
 
     res.render('post', {
       ...post,
-      logged_in: req.session.logged_in
+      logged_in: req.session.logged_in,
+      edit_post: true
     });
   } catch (err) {
     res.status(500).json(err);

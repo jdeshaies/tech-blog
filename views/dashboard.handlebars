@@ -1,1 +1,8 @@
-<h1>DASHBOARD PAGE</h1>
+<h1>Your Dashboard</h1>
+{{#each posts as |post| }}
+<div data-id={{post.id}}>
+    <p><a href="/post/{{post.id}}">{{post.title}}</a></p>
+    <p>{{format_date post.date_created}}</p>
+</div>
+{{/each}}
+<a href="/post">+ New Post</a>
